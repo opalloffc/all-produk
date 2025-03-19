@@ -8,11 +8,11 @@ document.addEventListener("alpine:init", () => {
         name: "VPS Ram 2 Core 2",
         img: "vps.jpg",
         price: 30000,
-        discount: 10,
+        stockt: 0,
       },
-      { id: 2, name: "VPS Ram 4 Core 2", img: "vps.jpg", price: 40000 },
-      { id: 3, name: "VPS Ram 8 Core 4", img: "vps.jpg", price: 50000 },
-      { id: 4, name: "VPS Ram 16 Core 4", img: "vps.jpg", price: 60000 },
+      { id: 2, name: "VPS Ram 4 Core 2", img: "vps.jpg", price: 40000, stock: 0 },
+      { id: 3, name: "VPS Ram 8 Core 4", img: "vps.jpg", price: 50000, stock: 0 },
+      { id: 4, name: "VPS Ram 16 Core 4", img: "vps.jpg", price: 60000, stock: 0 },
       { id: 5, name: "Ram 1GB", img: "panel.jpg", price: 1000 },
       { id: 6, name: "Ram 2GB", img: "panel.jpg", price: 2000 },
       { id: 7, name: "Ram 3GB", img: "panel.jpg", price: 3000 },
@@ -33,7 +33,7 @@ document.addEventListener("alpine:init", () => {
         price: 10000,
       },
       { id: 19, name: "OpallBotz-V1", img: "wabot.jpg", price: 25000 },
-      { id: 20, name: "OpallBotz-V2", img: "wabot.jpg", price: 45000 },
+      { id: 20, name: "OpallBotz-V2", img: "wabot.jpg", price: 45000, discount: 40 },
       { id: 21, name: "Owner Script", img: "wabot.jpg", price: 50000 },
       { id: 22, name: "Nokos Indo", img: "nokos.jpg", price: 5000 },
       { id: 23, name: "function database", img: "security.jpg", price: 45000 },
@@ -41,7 +41,7 @@ document.addEventListener("alpine:init", () => {
 
     //list services
     services: [
-      {id: 1, name: "Jasa Add Database", img: "security.jpg", price: 45000, discount: 10 },
+      {id: 1, name: "Jasa Add Database", img: "security.jpg", price: 45000, discount: 32 },
       {id: 2, name: "Jasa Install Panel Pterodactyl", img: "panel.jpg", price: 5000}
     ],
     getDiscountedPrice(item) {
