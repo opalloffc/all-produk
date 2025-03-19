@@ -42,7 +42,7 @@ document.addEventListener("alpine:init", () => {
     //list services
     services: [
       {id: 1, name: "Jasa Add Database", img: "security.jpg", price: 45000, discount: 10 },
-      {id: 2, name: "Jasa Install Panel Pterodactyl", img: "security.jpg", price: 45000}
+      {id: 2, name: "Jasa Install Panel Pterodactyl", img: "panel.jpg", price: 5000}
     ],
     getDiscountedPrice(item) {
       return item.discount
