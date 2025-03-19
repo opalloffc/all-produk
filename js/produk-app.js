@@ -8,7 +8,7 @@ document.addEventListener("alpine:init", () => {
         name: "VPS Ram 2 Core 2",
         img: "vps.jpg",
         price: 30000,
-        stockt: 0,
+        stock: 0,
       },
       { id: 2, name: "VPS Ram 4 Core 2", img: "vps.jpg", price: 40000, stock: 0 },
       { id: 3, name: "VPS Ram 8 Core 4", img: "vps.jpg", price: 50000, stock: 0 },
@@ -22,10 +22,10 @@ document.addEventListener("alpine:init", () => {
       { id: 11, name: "Ram 7GB", img: "panel.jpg", price: 7000 },
       { id: 12, name: "Ram 8GB", img: "panel.jpg", price: 8000 },
       { id: 13, name: "Ram 9GB", img: "panel.jpg", price: 9000 },
-      { id: 14, name: "Unlimited", img: "panel.jpg", price: 10000 },
-      { id: 15, name: "Admin Panel", img: "panel.jpg", price: 5000 },
-      { id: 16, name: "Patner Panel", img: "panel.jpg", price: 35000 },
-      { id: 17, name: "Owner Panel", img: "panel.jpg", price: 40000 },
+      { id: 14, name: "Unlimited", img: "panel.jpg", price: 15000, discount: 30 },
+      { id: 15, name: "Admin Panel", img: "panel.jpg", price: 15000, discount: 30 },
+      { id: 16, name: "Patner Panel", img: "panel.jpg", price: 35000, discount: 20 },
+      { id: 17, name: "Owner Panel", img: "panel.jpg", price: 40000, discount: 25 },
       {
         id: 18,
         name: "Resseler Panel Private",
@@ -69,7 +69,7 @@ document.addEventListener("alpine:init", () => {
       Nama: ${item.name}
       Harga: Rp ${hargaSetelahDiskon.toLocaleString("id-ID")}
       Apakah stok masih tersedia;`
-      let nomorWA = "6283867448492";
+      let nomorWA = "6283867448495";
       let urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
       //window.open(urlWA, "_blank");
       window.location.href = urlWA;
@@ -81,7 +81,7 @@ document.addEventListener("alpine:init", () => {
       Nama: ${service.name}
       Harga: Rp ${hargaSetelahDiskon.toLocaleString("id-ID")}
       Apakah stok masih tersedia;`
-      let nomorWA = "6283867448492";
+      let nomorWA = "6283867448495";
       let urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan_jasa)}`;
       //window.open(urlWA, "_blank");
       window.location.href = urlWA;
