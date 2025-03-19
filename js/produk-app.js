@@ -68,7 +68,7 @@ document.addEventListener("alpine:init", () => {
       let pesan = `Halo, saya ingin membeli produk:
       Nama: ${item.name}
       Harga: Rp ${hargaSetelahDiskon.toLocaleString("id-ID")}
-      Apakah stok masih tersedia;`
+      Payment: QRIS;`
       let nomorWA = "6283867448495";
       let urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
       //window.open(urlWA, "_blank");
@@ -79,8 +79,8 @@ document.addEventListener("alpine:init", () => {
       let hargaSetelahDiskon = this.getDiscountedPrice(service);
       let pesan_jasa = `Halo, saya ingin membeli produk:
       Nama: ${service.name}
-      Harga: Rp ${hargaSetelahDiskon.toLocaleString("id-ID")}
-      Apakah stok masih tersedia;`
+      Harga: Rp ${price} Rp ${hargaSetelahDiskon.toLocaleString("id-ID")}
+      Payment: QRIS;`
       let nomorWA = "6283867448495";
       let urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan_jasa)}`;
       //window.open(urlWA, "_blank");
