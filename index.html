@@ -216,7 +216,7 @@
   <!-- Menu Section end -->
 
   <!-- Products Section start -->
-  <section class="products" id="products" x-data="products">
+  <section class="products" id="products" x-data="products" x-init="fetchProducts()">
     <h2><span>Beli</span> Produk</h2>
     <p>Chet Admin Bila Ada Yang Di Tanyakan</p>
 
@@ -251,7 +251,7 @@
     <p>Kami menyediakan berbagai layanan jasa terbaik.</p>
 
     <div class="row">
-      <template x-for="(service, index) in services" x-key="index" x-init="fetchProducts()">
+      <template x-for="(service, index) in services" x-key="index">
         <div class="product-card">
           <div class="product-image">
             <img :src="`img/products/${service.img}`" :alt="service.name" />
