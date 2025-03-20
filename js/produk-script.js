@@ -9,6 +9,14 @@ document.querySelector('#hamburger-menu').onclick = () => {
 const searchForm = document.querySelector('.search-form');
 const searchBox = document.querySelector('#search-box');
 
+document.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  });
+});
+
 document.querySelector('#search-button').onclick = (e) => {
   searchForm.classList.toggle('active');
   searchBox.focus();
