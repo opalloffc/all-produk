@@ -246,12 +246,12 @@
     </div>
   </section>
   <!-- LIST JASA -->
-  <section class="services" id="services" x-data="products">
+  <section class="services" id="services" x-data="products" x-init="fetchProducts()">
     <h2><span>Open</span> Jasa</h2>
     <p>Kami menyediakan berbagai layanan jasa terbaik.</p>
 
     <div class="row">
-      <template x-for="(service, index) in services" x-key="index">
+      <template x-for="(service, index) in services" x-key="index" x-init="fetchProducts()">
         <div class="product-card">
           <div class="product-image">
             <img :src="`img/products/${service.img}`" :alt="service.name" />
