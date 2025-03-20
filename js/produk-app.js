@@ -1,8 +1,11 @@
 document.addEventListener("alpine:init", () => {
   Alpine.data("products", () => ({
-    items: [
+    items: [],
       // stock: 0 (produk kosong)
       // discount: 10 (diskon 10%)
+      fetchProducts() {
+        setTimeout(() => {
+          this.items = [
       {
         id: 1,
         name: "VPS Ram 2 Core 2",
