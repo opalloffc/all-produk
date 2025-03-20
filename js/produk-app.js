@@ -49,6 +49,7 @@ document.addEventListener("alpine:init", () => {
       {id: 2, name: "Jasa Install Panel Pterodactyl", img: "panel.jpg", price: 5000},
       {id: 2, name: "Jasa Tema Panel Pterodactyl", img: "panel.jpg", price: 5000},
     ],
+    }, 500)
     getDiscountedPrice(item) {
       return item.discount
         ? item.price - (item.price * item.discount / 100)
