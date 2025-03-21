@@ -221,7 +221,7 @@
     <p>Chet Admin Bila Ada Yang Di Tanyakan</p>
 
     <div class="row">
-      <template x-for="(item, index) in items" x-key="index">
+      <template x-for="(item, index) in items" :key="index">
         <div class="product-card">
           <div class="product-image">
             <img :src="`img/products/${item.img}`" :alt="item.name" />
