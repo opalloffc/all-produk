@@ -64,11 +64,11 @@ itemDetailButtons.forEach((btn) => {
 // document.querySelector('.modal .close-icon').onclick = (e) => {
 //   itemDetailModal.style.display = 'none';
 //   e.preventDefault();
-};
+// };
 
 // klik di luar modal
-window.onclick = (e) => {
-  if (e.target === itemDetailModal) {
-    itemDetailModal.style.display = 'none';
-  }
-};
+// window.onclick = (e) => {
+//   if (e.target === itemDetailModal) {
+//     itemDetailModal.style.display = 'none';
+//   }
+// };
