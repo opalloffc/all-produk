@@ -1,6 +1,6 @@
 document.addEventListener("alpine:init", () => {
   Alpine.data("products", () => ({
-    items: [
+    vpss: [
       // stock: 0 (produk kosong)
       // discount: 10 (diskon 10%)
       {
@@ -13,6 +13,10 @@ document.addEventListener("alpine:init", () => {
       { id: 2, name: "VPS Ram 4 Core 2", img: "vps.jpg", price: 40000 },
       { id: 3, name: "VPS Ram 8 Core 4", img: "vps.jpg", price: 50000 },
       { id: 4, name: "VPS Ram 16 Core 4", img: "vps.jpg", price: 60000 },
+    ],
+
+    //list panel
+    panels: [
       { id: 5, name: "Ram 1GB", img: "panel.jpg", price: 1000 },
       { id: 6, name: "Ram 2GB", img: "panel.jpg", price: 2000 },
       { id: 7, name: "Ram 3GB", img: "panel.jpg", price: 3000 },
@@ -32,6 +36,10 @@ document.addEventListener("alpine:init", () => {
         img: "panel.jpg",
         price: 10000,
       },
+    ],
+
+    //list produk lainnya
+    items: [
       { id: 19, name: "OpallBotz-V1", img: "wabot.jpg", price: 25000 },
       { id: 20, name: "OpallBotz-V2", img: "wabot.jpg", price: 45000 },
       { id: 21, name: "Owner Script", img: "wabot.jpg", price: 50000 },
@@ -41,18 +49,45 @@ document.addEventListener("alpine:init", () => {
 
     //list services
     services: [
-      {id: 1, name: "Jasa Add Database", img: "security.jpg", price: 45000, discount: 10 },
-      {id: 2, name: "Jasa Install Panel Pterodactyl", img: "panel.jpg", price: 5000},
-      {id: 2, name: "Jasa Tema Panel Pterodactyl", img: "panel.jpg", price: 5000},
+      {
+        id: 1,
+        name: "Jasa Add Database",
+        img: "security.jpg",
+        price: 45000,
+        discount: 10,
+      },
+      {
+        id: 2,
+        name: "Jasa Install Panel Pterodactyl",
+        img: "panel.jpg",
+        price: 5000,
+      },
+      {
+        id: 2,
+        name: "Jasa Tema Panel Pterodactyl",
+        img: "panel.jpg",
+        price: 5000,
+      },
     ],
+
+    getDiscountedPrice(vps) {
+      return vps.discount
+        ? vps.price - (vps.price * vps.discount) / 100
+        : vps.price;
+    },
+    getDiscountedPrice(panel) {
+      return panel.discount
+        ? panel.price - (panel.price * panel.discount) / 100
+        : panel.price;
+    },
     getDiscountedPrice(item) {
       return item.discount
-        ? item.price - (item.price * item.discount / 100)
+        ? item.price - (item.price * item.discount) / 100
         : item.price;
     },
     getDiscountedPrice(service) {
       return service.discount
-        ? service.price - (service.price * service.discount / 100)
+        ? service.price - (service.price * service.discount) / 100
         : service.price;
     },
 
@@ -60,8 +95,41 @@ document.addEventListener("alpine:init", () => {
       return angka.toLocaleString("id-ID");
     },
 
+    // VPS
+    beli(vps) {
+      if (item.stock <= 0) {
+        alert("produk ini sedang kosong");
+        return;
+      }
+      let hargaSetelahDiskon = this.getDiscountedPrice(vps);
+      let pesan = `Halo, saya ingin membeli produk:
+      Nama: ${vps.name}
+      Harga: Rp ${hargaSetelahDiskon.toLocaleString("id-ID")}
+      Payment: QRIS`;
+      let nomorWA = "6283867448495";
+      let urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+      //window.open(urlWA, "_blank");
+      window.location.href = urlWA;
+    },
+    //PANEL
+    beli(panel) {
+      if (panel.stock <= 0) {
+        alert("produk ini sedang kosong");
+        return;
+      }
+      let hargaSetelahDiskon = this.getDiscountedPrice(panel);
+      let pesan = `Halo, saya ingin membeli produk:
+      Nama: ${panel.name}
+      Harga: Rp ${hargaSetelahDiskon.toLocaleString("id-ID")}
+      Payment: QRIS`;
+      let nomorWA = "6283867448495";
+      let urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+      //window.open(urlWA, "_blank");
+      window.location.href = urlWA;
+    },
+    //ITEM
     beli(item) {
-      if (item.stock <= 0){
+      if (item.stock <= 0) {
         alert("produk ini sedang kosong");
         return;
       }
@@ -75,171 +143,18 @@ document.addEventListener("alpine:init", () => {
       //window.open(urlWA, "_blank");
       window.location.href = urlWA;
     },
-//SERVICE
+    //SERVICE
     belilayanan(service) {
       let hargaSetelahDiskon = this.getDiscountedPrice(service);
-      let pesan_jasa = `Halo, saya ingin membeli produk:
-      Nama: ${service.name}
+      let pesan_jasa = `Halo, saya ingin menggunakan  ${service.name}
       Harga: Rp ${hargaSetelahDiskon.toLocaleString("id-ID")}
       Payment: QRIS`;
       let nomorWA = "6283867448495";
-      let urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan_jasa)}`;
+      let urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(
+        pesan_jasa
+      )}`;
       //window.open(urlWA, "_blank");
       window.location.href = urlWA;
     },
-
-    // beli(item) {
-    //   const nomorWA = "6283867448495";
-    //   const pesan = `Halo saya ingin membeli:\n\n` + `*${item.name}*\nHarga: Rp ${item.price.toLocaleString()}\n\n` + `Bagaimana cara pembeliannya`;
-    //   const urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
-    //   window.open(urlWA, "_blank");
-    // }
   }));
-
-  // function hitungHargaDiskon(harga, diskon) {
-  //   if (!diskon || diskon === 0) {
-  //     return harga;
-  //   }
-  //   return harga - (harga * diskon) / 100;
-  // }
-
-  // function beliSekarang(namaProduk, harga, diskon) {
-  //   const nomorWA = "6283867448495";
-
-  //   let hargaFinal = harga;
-  //   let pesan = `Halo, saya ingin membeli:\n ${namaProduk}\n Harga: Rp ${harga}`;
-
-  //   if (diskon && diskon > 0) {
-  //     hargaFinal = harga - (harga * diskon) / 100;
-  //     pesan += `\n Diskon ${diskon}%\nHarga Setelah Diskon: Rp ${hargaFinal}`;
-  //   }
-
-  //   pesan += `\nBagaimana cara pembeliannaya?`;
-
-  //   //const pesan = `Halo saya ingin membeli:\n\n` + `*${item.name}*\nHarga: Rp ${item.price.toLocaleString()}\n\n` + `Bagaimana cara pembeliannya`;
-  //   const urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
-  //   window.location.href = urlWA;
-  // }
-
-  Alpine.store("cart", {
-    items: [],
-    total: 0,
-    quantity: 0,
-    add(newItem) {
-      //cek apakah ada barang yang sama di cart
-      const cartItem = this.items.find((item) => item.id === newItem.id);
-
-      // jika belum ada
-      if (!cartItem) {
-        this.items.push({ ...newItem, quantity: 1, total: newItem.price });
-        this.quantity++;
-        this.total += newItem.price;
-      } else {
-        // jika barang sama atau beda
-        this.items = this.items.map((item) => {
-          //jika barang beda
-          if (item.id !== newItem.id) {
-            return item;
-          } else {
-            //jika barang ada
-            item.quantity++;
-            item.total = item.price * item.quantity;
-            this.quantity++;
-            this.total += item.price;
-            return item;
-          }
-        });
-      }
-    },
-    remove(id) {
-      //ambil item yang mau di remove
-      const cartItem = this.items.find((item) => item.id === id);
-
-      //jika item lebih dari 1
-      if (cartItem.quantity > 1) {
-        //telusuri 1 1
-        this.items = this.items.map((item) => {
-          //jika bukan barang yang di klik
-          if (item.id !== id) {
-            return item;
-          } else {
-            item.quantity--;
-            item.total = item.price * item.quantity;
-            this.quantity--;
-            this.total -= item.price;
-            return item;
-          }
-        });
-      } else if (cartItem.quantity === 1) {
-        //jika barang sisa 1
-        this.items = this.items.filter((item) => item.id !== id);
-        this.quantity--;
-        this.total -= cartItem.price;
-      }
-    },
-  });
 });
-
-//form validation
-const checkoutButton = document.querySelector(".checkout-button");
-checkoutButton.disabled = true;
-
-const form = document.querySelector("#checkoutForm");
-
-form.addEventListener("keyup", function () {
-  for (let i = 0; i < form.elements.length; i++) {
-    if (form.elements[i].value.length !== 0) {
-      checkoutButton.classList.remove("disabled");
-      checkoutButton.classList.add("disabled");
-    } else {
-      return false;
-    }
-  }
-  checkoutButton.disabled = false;
-  checkoutButton.classList.remove("disabled");
-});
-
-//kirim data ketika tombol checkout di klik
-checkoutButton.addEventListener("click", async function (e) {
-  e.preventDefault();
-  const formData = new FormData(form);
-  const data = new URLSearchParams(formData);
-  const objData = Object.fromEntries(data);
-  //   const message = formatMessage(objData);
-  //   window.open('http://wa.me/6283867448495?text=' + encodeURI(message));
-
-  //minta trx token
-  try {
-    const response = await fetch("midtrans/midtrans.php", {
-      method: "POST",
-      body: data,
-    });
-    const token = await response.text();
-    // console.log(token);
-    window.snap.pay(token);
-  } catch (err) {
-    console.log(err.message);
-  }
-});
-//format pesan whatsapp
-const formatMessage = (obj) => {
-  return `Data Customer
-    Nama: ${obj.name}
-    Email: ${obj.email}
-    No HP: ${obj.phone}
-    Data Pesanan
-    ${JSON.parse(obj.items).map(
-      (item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n`
-    )}
-    TOTAL: ${rupiah(obj.total)}
-    Terima kasih`;
-};
-
-//k konversi ke rupiah
-const rupiah = (number) => {
-  return new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    minimumFractionDigits: 0,
-  }).format(number);
-};
