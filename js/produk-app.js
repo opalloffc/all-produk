@@ -7,7 +7,7 @@ document.addEventListener("alpine:init", () => {
         id: 1,
         name: "VPS Ram 2 Core 2",
         img: "vps.jpg",
-        price: 30000
+        price: 30000,
       },
       { id: 2, name: "VPS Ram 4 Core 2", img: "vps.jpg", price: 40000 },
       { id: 3, name: "VPS Ram 8 Core 4", img: "vps.jpg", price: 50000 },
