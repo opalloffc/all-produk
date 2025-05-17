@@ -106,7 +106,7 @@ document.addEventListener("alpine:init", () => {
       Nama: ${vps.name}
       Harga: Rp ${hargaSetelahDiskon.toLocaleString("id-ID")}
       Payment: QRIS`;
-      let nomorWA = "6283867448495";
+      let nomorWA = "6283831344133";
       let urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
       //window.open(urlWA, "_blank");
       window.location.href = urlWA;
@@ -122,7 +122,7 @@ document.addEventListener("alpine:init", () => {
       Nama: ${panel.name}
       Harga: Rp ${hargaSetelahDiskon.toLocaleString("id-ID")}
       Payment: QRIS`;
-      let nomorWA = "6283867448495";
+      let nomorWA = "6283831344133";
       let urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
       //window.open(urlWA, "_blank");
       window.location.href = urlWA;
@@ -138,7 +138,7 @@ document.addEventListener("alpine:init", () => {
       Nama: ${item.name}
       Harga: Rp ${hargaSetelahDiskon.toLocaleString("id-ID")}
       Payment: QRIS`;
-      let nomorWA = "6283867448495";
+      let nomorWA = "6283831344133";
       let urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
       //window.open(urlWA, "_blank");
       window.location.href = urlWA;
@@ -149,7 +149,7 @@ document.addEventListener("alpine:init", () => {
       let pesan_jasa = `Halo, saya ingin menggunakan  ${service.name}
       Harga: Rp ${hargaSetelahDiskon.toLocaleString("id-ID")}
       Payment: QRIS`;
-      let nomorWA = "6283867448495";
+      let nomorWA = "6283831344133";
       let urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(
         pesan_jasa
       )}`;
